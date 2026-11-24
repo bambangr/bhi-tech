@@ -14,7 +14,7 @@
 body{margin:0;background:#F5F8FF}
 a{color:#1D4FB8}a:hover{color:#0B2A5B}
 </style>
-<style>@media(max-width:640px){h1{font-size:38px!important}h2{font-size:30px!important}section>div,header>div{padding-left:20px!important;padding-right:20px!important}}html{scroll-behavior:smooth}.gk-slide{position:absolute;inset:0;margin:0;opacity:0;animation:gkfade 12s infinite;animation-delay:calc(var(--i)*4s)}@keyframes gkfade{0%{opacity:0}4%{opacity:1}31%{opacity:1}36%{opacity:0}100%{opacity:0}}@media(prefers-reduced-motion:reduce){.gk-slide{animation:none}.gk-slide:first-child{opacity:1}}</style>
+<style>@media(max-width:640px){h1{font-size:38px!important}h2{font-size:30px!important}section>div,header>div{padding-left:20px!important;padding-right:20px!important}}html{scroll-behavior:smooth}.gk-slide{position:absolute;inset:0;margin:0;opacity:0;transition:opacity .6s ease;pointer-events:none}.gk-slide.on{opacity:1;pointer-events:auto}#gk button:hover,#gk-lb button:hover{background:#FFFFFF!important}#gk-lb[hidden]{display:none!important}</style>
 </head>
 <body>
 <div style="font-family: 'Plus Jakarta Sans', system-ui, sans-serif; color: #0F1B33; background: #F5F8FF; min-height: 100vh">
@@ -51,8 +51,7 @@ a{color:#1D4FB8}a:hover{color:#0B2A5B}
         </div>
       </div>
       <div style="flex: 1 1 480px; min-width: 0; background: #12366F; border: 1px solid #23508F; border-radius: 24px; padding: 28px; display: flex; flex-direction: column; gap: 16px">
-        <span style="font-size: 14px; color: #9DB8E6; font-weight: 600">Tampilan aplikasi GERAK</span>
-        <div style="position: relative; aspect-ratio: 960 / 411; border-radius: 14px; overflow: hidden; background: #0B1426; border: 1px solid #23508F"><figure class="gk-slide" style="--i:0"><img src="/img/gerak-umkm-dasbor.webp" alt="GERAK UMKM · Dasbor omzet dan untung bersih" width="960" height="411" loading="eager" style="width: 100%; height: 100%; object-fit: cover; display: block"><figcaption style="position: absolute; left: 10px; bottom: 10px; padding: 6px 10px; border-radius: 8px; background: rgba(11,42,91,0.92); color: #FFFFFF; font-size: 13px; font-weight: 600">GERAK UMKM · Dasbor omzet &amp; untung bersih</figcaption></figure><figure class="gk-slide" style="--i:1"><img src="/img/gerak-kop-sakep.webp" alt="GERAK Koperasi · Laporan Keuangan SAK EP" width="960" height="411" loading="lazy" style="width: 100%; height: 100%; object-fit: cover; display: block"><figcaption style="position: absolute; left: 10px; bottom: 10px; padding: 6px 10px; border-radius: 8px; background: rgba(11,42,91,0.92); color: #FFFFFF; font-size: 13px; font-weight: 600">GERAK Koperasi · Laporan Keuangan SAK EP</figcaption></figure><figure class="gk-slide" style="--i:2"><img src="/img/gerak-kop-simpanan.webp" alt="GERAK Koperasi · Simpanan anggota" width="960" height="411" loading="lazy" style="width: 100%; height: 100%; object-fit: cover; display: block"><figcaption style="position: absolute; left: 10px; bottom: 10px; padding: 6px 10px; border-radius: 8px; background: rgba(11,42,91,0.92); color: #FFFFFF; font-size: 13px; font-weight: 600">GERAK Koperasi · Simpanan anggota</figcaption></figure></div>
+        <div id="gk" style="position: relative; aspect-ratio: 960 / 411; border-radius: 14px; overflow: hidden; background: #0B1426; border: 1px solid #23508F"><figure class="gk-slide on" data-i="0"><img src="/img/gerak-umkm-dasbor.webp" alt="GERAK UMKM · Dasbor omzet dan untung bersih" width="960" height="411" loading="eager" style="cursor: zoom-in; width: 100%; height: 100%; object-fit: cover; display: block"><figcaption style="position: absolute; left: 10px; bottom: 10px; padding: 6px 10px; border-radius: 8px; background: rgba(11,42,91,0.92); color: #FFFFFF; font-size: 13px; font-weight: 600">GERAK UMKM · Dasbor omzet &amp; untung bersih</figcaption></figure><figure class="gk-slide" data-i="1"><img src="/img/gerak-kop-sakep.webp" alt="GERAK Koperasi · Laporan Keuangan SAK EP" width="960" height="411" loading="lazy" style="cursor: zoom-in; width: 100%; height: 100%; object-fit: cover; display: block"><figcaption style="position: absolute; left: 10px; bottom: 10px; padding: 6px 10px; border-radius: 8px; background: rgba(11,42,91,0.92); color: #FFFFFF; font-size: 13px; font-weight: 600">GERAK Koperasi · Laporan Keuangan SAK EP</figcaption></figure><figure class="gk-slide" data-i="2"><img src="/img/gerak-kop-simpanan.webp" alt="GERAK Koperasi · Simpanan anggota" width="960" height="411" loading="lazy" style="cursor: zoom-in; width: 100%; height: 100%; object-fit: cover; display: block"><figcaption style="position: absolute; left: 10px; bottom: 10px; padding: 6px 10px; border-radius: 8px; background: rgba(11,42,91,0.92); color: #FFFFFF; font-size: 13px; font-weight: 600">GERAK Koperasi · Simpanan anggota</figcaption></figure><button type="button" class="gk-prev" aria-label="Screenshot sebelumnya" style="position: absolute; left: 10px; top: 50%; transform: translateY(-50%); z-index: 3; width: 44px; height: 44px; border-radius: 999px; border: none; background: rgba(255,255,255,0.92); color: #0B2A5B; display: flex; align-items: center; justify-content: center; cursor: pointer; box-shadow: 0 2px 10px rgba(0,0,0,.3)"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 6l-6 6 6 6"/></svg></button><button type="button" class="gk-next" aria-label="Screenshot berikutnya" style="position: absolute; right: 10px; top: 50%; transform: translateY(-50%); z-index: 3; width: 44px; height: 44px; border-radius: 999px; border: none; background: rgba(255,255,255,0.92); color: #0B2A5B; display: flex; align-items: center; justify-content: center; cursor: pointer; box-shadow: 0 2px 10px rgba(0,0,0,.3)"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></button></div>
       </div>
     </div>
   </section>
@@ -200,5 +199,37 @@ a{color:#1D4FB8}a:hover{color:#0B2A5B}
   </section>
 
 </div>
+<div id="gk-lb" role="dialog" aria-modal="true" aria-label="Screenshot GERAK" hidden style="position: fixed; inset: 0; z-index: 100; background: rgba(5,15,35,0.94); align-items: center; justify-content: center; padding: 24px; box-sizing: border-box">
+  <figure style="margin: 0; max-width: min(1200px, 100%); display: flex; flex-direction: column; gap: 12px; align-items: center">
+    <img id="gk-lb-img" src="/img/gerak-umkm-dasbor.webp" alt="" style="max-width: 100%; max-height: 80vh; border-radius: 12px; box-shadow: 0 10px 40px rgba(0,0,0,.5)">
+    <figcaption id="gk-lb-cap" style="color: #FFFFFF; font-size: 15px; font-weight: 600; text-align: center"></figcaption>
+  </figure>
+  <button type="button" id="gk-lb-prev" aria-label="Sebelumnya" style="position: absolute; left: 16px; top: 50%; transform: translateY(-50%); width: 44px; height: 44px; border-radius: 999px; border: none; background: rgba(255,255,255,0.92); color: #0B2A5B; display: flex; align-items: center; justify-content: center; cursor: pointer; box-shadow: 0 2px 10px rgba(0,0,0,.3)"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 6l-6 6 6 6"/></svg></button>
+  <button type="button" id="gk-lb-next" aria-label="Berikutnya" style="position: absolute; right: 16px; top: 50%; transform: translateY(-50%); width: 44px; height: 44px; border-radius: 999px; border: none; background: rgba(255,255,255,0.92); color: #0B2A5B; display: flex; align-items: center; justify-content: center; cursor: pointer; box-shadow: 0 2px 10px rgba(0,0,0,.3)"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></button>
+  <button type="button" id="gk-lb-close" aria-label="Tutup" style="position: absolute; right: 16px; top: 16px; width: 44px; height: 44px; border-radius: 999px; border: none; background: rgba(255,255,255,0.92); color: #0B2A5B; display: flex; align-items: center; justify-content: center; cursor: pointer; box-shadow: 0 2px 10px rgba(0,0,0,.3)"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+</div>
+<script>
+(function(){
+  var root=document.getElementById('gk'); if(!root) return;
+  var slides=[].slice.call(root.querySelectorAll('.gk-slide')), n=slides.length, cur=0, timer=null;
+  var reduce=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function show(i){cur=(i+n)%n; slides.forEach(function(f,k){f.classList.toggle('on',k===cur);});}
+  function stop(){if(timer){clearInterval(timer);timer=null;}}
+  function start(){if(reduce) return; stop(); timer=setInterval(function(){show(cur+1);},4500);}
+  root.querySelector('.gk-prev').onclick=function(){show(cur-1);start();};
+  root.querySelector('.gk-next').onclick=function(){show(cur+1);start();};
+  var lb=document.getElementById('gk-lb'), img=document.getElementById('gk-lb-img'), cap=document.getElementById('gk-lb-cap');
+  function lbShow(i){show(i); var im=slides[cur].querySelector('img'); img.src=im.src; img.alt=im.alt; cap.textContent=slides[cur].querySelector('figcaption').textContent;}
+  function open(i){stop(); lbShow(i); lb.hidden=false; lb.style.display='flex'; document.body.style.overflow='hidden'; document.getElementById('gk-lb-next').focus();}
+  function close(){lb.hidden=true; lb.style.display='none'; document.body.style.overflow=''; start();}
+  slides.forEach(function(f,k){f.querySelector('img').onclick=function(){open(k);};});
+  document.getElementById('gk-lb-prev').onclick=function(){lbShow(cur-1);};
+  document.getElementById('gk-lb-next').onclick=function(){lbShow(cur+1);};
+  document.getElementById('gk-lb-close').onclick=close;
+  lb.onclick=function(e){if(e.target===lb) close();};
+  document.addEventListener('keydown',function(e){if(lb.hidden) return; if(e.key==='Escape') close(); else if(e.key==='ArrowRight') lbShow(cur+1); else if(e.key==='ArrowLeft') lbShow(cur-1);});
+  start();
+})();
+</script>
 </body>
 </html>
