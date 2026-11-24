@@ -1,0 +1,29 @@
+# Auto-deploy: tiap 60 detik ambil branch main, salin isi site/ ke /var/www/bintangharta.
+services:
+  sync:
+    image: alpine/git:latest
+    container_name: bintangharta-autodeploy
+    restart: unless-stopped
+    environment:
+      REPO_URL: https://github.com/bambangr/bhi-tech.git
+      BRANCH: main
+      WEBROOT: /www
+      INTERVAL: "60"
+    volumes:
+      - /var/www/bintangharta:/www
+    entrypoint: ["/bin/sh", "-c"]
+    command:
+      - |
+        set -u
+        WORK=/tmp/repo; LAST=""
+        sync_once() {
+          [ -d "$$WORK/.git" ] || git clone --quiet --depth 1 --branch "$$BRANCH" "$$REPO_URL" "$$WORK" || return 1
+          git -C "$$WORK" fetch --quiet --depth 1 origin "$$BRANCH" || return 1
+          git -C "$$WORK" reset --quiet --hard "origin/$$BRANCH"
+          NEW=$$(git -C "$$WORK" rev-parse HEAD)
+          [ "$$NEW" = "$$LAST" ] && return 0
+          [ -s "$$WORK/site/index.html" ] || { echo "SKIP $$NEW: site/index.html kosong"; return 1; }
+          cp -r "$$WORK/site/." "$$WEBROOT/" && chmod -R a+rX "$$WEBROOT"
+          LAST="$$NEW"; echo "DEPLOYED $$NEW"
+        }
+        while true; do sync_once || echo "sync gagal, coba lagi"; sleep "$$INTERVAL"; done
